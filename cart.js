@@ -49,6 +49,31 @@ function updateProductNumber(isIncreasing, price, product) {
     // update case Total 
     const productTotal = document.getElementById('balance' + product);
     productTotal.innerText = productNumber * price;
+    calculteTotal();
+}
+function getInputValue(product) {
+    const productInput = document.getElementById('count' + product);
+    const productNumber = parseInt(productInput.value);
+    return productNumber;
+}
+
+function calculteTotal() {
+    // const phoneInput = getInputValue('phone');
+    // const phoneNumber = parseInt(phoneInput.value);
+    // const phoneTotal = phoneNumber * 1219;
+    const phoneTotal = getInputValue('Mobile') * 1219;
+    const caseTotal = getInputValue('Case') * 59;
+
+    const subTotal = phoneTotal + caseTotal;
+    const tax = subTotal / 10;
+    const totalPrice = subTotal + tax;
+
+    // console.log(subTotal);
+    document.getElementById('sub-total').innerText = subTotal;
+    document.getElementById('tax-total').innerText = tax;
+    document.getElementById('total').innerText = totalPrice;
+
+
 
 }
 
